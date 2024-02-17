@@ -43,7 +43,9 @@ function goToUpdatePage() {
   // Generate update form dynamically
   var updateFormContainer = document.getElementById('updateFormContainer');
   updateFormContainer.innerHTML = '';
-  categories.forEach(function (category) { // Fix here: change 'category' to 'categories'
+
+  // Assuming 'products' is the correct variable, change 'categories' to 'products'
+  products.forEach(function (product) {
     var updateForm = document.createElement('div');
     updateForm.innerHTML = `
       <label for="${product.name}Small">${product.name} Small:</label>
@@ -62,9 +64,10 @@ function goToUpdatePage() {
     updateFormContainer.appendChild(hideButton);
   });
 
-  // Fix here: categories instead of category
-  fadeInProducts(categories, true); // Pass 'true' to indicate it's the first page
+  // Assuming 'products' is the correct variable, change 'categories' to 'products'
+  fadeInProducts(products, true); // Pass 'true' to indicate it's the first page
 }
+
 
 function toggleVisibility(product) {
   // Toggle the visibility of the product on the first page
