@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mobile-friendly Menu</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+
+  <div class="menu-content">
+    <div id="coffee" class="category">
+      <h2>Coffee</h2>
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Small</th>
+            <th>Large</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="product" id="Espresso">
+            <td>Espresso</td>
+            <td>$2.50</td>
+            <td>$3.50</td>
+          </tr>
+          <tr class="product" id="DoubleEspresso">
+            <td>Double Espresso</td>
+            <td>$3.00</td>
+            <td>$4.00</td>
+          </tr>
+          <tr class="product" id="Latte">
+            <td>Latte</td>
+            <td>$4.00</td>
+            <td>$5.00</td>
+          </tr>
+          <tr class="product" id="Lungo">
+            <td>Lungo</td>
+            <td>$2.50</td>
+            <td>$3.50</td>
+          </tr>
+          <tr class="product" id="Americano">
+            <td>Americano</td>
+            <td>$3.00</td>
+            <td>$4.00</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div id="drinks" class="category">
+      <h2>Drinks</h2>
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Small</th>
+            <th>Large</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="product" id="CocaCola">
+            <td>Coca Cola</td>
+            <td>$1.50</td>
+            <td>$2.00</td>
+          </tr>
+          <tr class="product" id="Fanta">
+            <td>Fanta</td>
+            <td>$1.50</td>
+            <td>$2.00</td>
+          </tr>
+          <tr class="product" id="Sprite">
+            <td>Sprite</td>
+            <td>$1.50</td>
+            <td>$2.00</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div id="food" class="category">
+      <h2>Food</h2>
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Large</th>
+            <th>Small</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="product" id="Burger">
+            <td>Burger</td>
+            <td>$5.00</td>
+            <td>$4.50</td>
+          </tr>
+          <tr class="product" id="Salad">
+            <td>Salad</td>
+            <td>$4.00</td>
+            <td>$3.50</td>
+          </tr>
+          <tr class="product" id="Toast">
+            <td>Toast</td>
+            <td>$3.50</td>
+            <td>$3.00</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div id="updatePage">
+    <p id="updatePageText">Update Prices</p>
+    <form id="loginForm">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required><br>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required><br>
+      <button type="button" onclick="login()">Login</button>
+    </form>
+
+    <div id="updateForm">
+      <div id="updateFormContainer"></div>
+
+      <button id="saveChangesButton" onclick="updatePrices()">Save Changes</button>
+      <button id="returnToMenuButton" type="button" onclick="goToFirstPage()">Return to Menu</button>
+      <button id="returnToFirstPageButton" type="button" onclick="goToFirstPage()">Return to First Page</button>
+    </div>
+  </div>
+
+  <nav>
+    <a href="#" onclick="toggleCategory('coffee')">Coffee</a>
+    <a href="#" onclick="toggleCategory('drinks')">Drinks</a>
+    <a href="#" onclick="toggleCategory('food')">Food</a>
+    <a href="#" onclick="goToUpdatePage()">Update Prices</a>
+  </nav>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
