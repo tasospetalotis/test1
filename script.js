@@ -40,32 +40,34 @@ function goToUpdatePage() {
   document.getElementById('returnToMenuButton').style.display = 'none';
   document.getElementById('returnToFirstPageButton').style.display = 'none';
 
-  // Generate update form dynamically
-  var updateFormContainer = document.getElementById('updateFormContainer');
-  updateFormContainer.innerHTML = '';
+  // Assuming 'categories' is the correct variable, change 'products' to 'categories'
+  categories.forEach(function (category) {
+    var updateFormContainer = document.getElementById('updateFormContainer');
+    updateFormContainer.innerHTML = '';
 
-  // Assuming 'products' is the correct variable, change 'categories' to 'products'
-  products.forEach(function (product) {
-    var updateForm = document.createElement('div');
-    updateForm.innerHTML = `
-      <label for="${product.name}Small">${product.name} Small:</label>
-      <input type="text" id="${product.name}Small" name="${product.name}Small" value="${product.smallPrice}"><br>
-      <label for="${product.name}Large">${product.name} Large:</label>
-      <input type="text" id="${product.name}Large" name="${product.name}Large" value="${product.largePrice}"><br>
-    `;
-    updateFormContainer.appendChild(updateForm);
+    // Assuming 'products' is the correct variable, change 'categories' to 'products'
+    products.forEach(function (product) {
+      var updateForm = document.createElement('div');
+      updateForm.innerHTML = `
+        <label for="${product.name}Small">${product.name} Small:</label>
+        <input type="text" id="${product.name}Small" name="${product.name}Small" value="${product.smallPrice}"><br>
+        <label for="${product.name}Large">${product.name} Large:</label>
+        <input type="text" id="${product.name}Large" name="${product.name}Large" value="${product.largePrice}"><br>
+      `;
+      updateFormContainer.appendChild(updateForm);
 
-    // Add a hide button for each product on the second page
-    var hideButton = document.createElement('button');
-    hideButton.textContent = 'Hide';
-    hideButton.onclick = function () {
-      toggleVisibility(product);
-    };
-    updateFormContainer.appendChild(hideButton);
+      // Add a hide button for each product on the second page
+      var hideButton = document.createElement('button');
+      hideButton.textContent = 'Hide';
+      hideButton.onclick = function () {
+        toggleVisibility(product);
+      };
+      updateFormContainer.appendChild(hideButton);
+    });
+
+    // Assuming 'categories' is the correct variable, change 'products' to 'categories'
+    fadeInProducts(categories, true); // Pass 'true' to indicate it's the first page
   });
-
-  // Assuming 'products' is the correct variable, change 'categories' to 'products'
-  fadeInProducts(products, true); // Pass 'true' to indicate it's the first page
 }
 
 
