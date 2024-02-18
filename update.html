@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Update Prices</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+
+  <div id="updatePage">
+    <p id="updatePageText">Update Prices</p>
+    <form id="loginForm">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required><br>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required><br>
+      <button type="button" onclick="login()">Login</button>
+    </form>
+
+    <div id="updateForm">
+      <div id="updateFormContainer"></div>
+
+      <button id="saveChangesButton" onclick="updatePrices()">Save Changes</button>
+      <button id="returnToMenuButton" type="button" onclick="goToFirstPage()">Return to Menu</button>
+      <button id="returnToFirstPageButton" type="button" onclick="goToFirstPage()">Return to First Page</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
