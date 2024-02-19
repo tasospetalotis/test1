@@ -40,36 +40,30 @@ function goToUpdatePage() {
   document.getElementById('returnToMenuButton').style.display = 'none';
   document.getElementById('returnToFirstPageButton').style.display = 'none';
 
-  // Assuming 'categories' is the correct variable, change 'products' to 'categories'
-  categories.forEach(function (category) {
-    var updateFormContainer = document.getElementById('updateFormContainer');
-    updateFormContainer.innerHTML = '';
+  // Generate update form dynamically
+  var updateFormContainer = document.getElementById('updateFormContainer');
+  updateFormContainer.innerHTML = '';
+  products.forEach(function (product) {
+    var updateForm = document.createElement('div');
+    updateForm.innerHTML = `
+      <label for="${product.name}Small">${product.name} Small:</label>
+      <input type="text" id="${product.name}Small" name="${product.name}Small" value="${product.smallPrice}"><br>
+      <label for="${product.name}Large">${product.name} Large:</label>
+      <input type="text" id="${product.name}Large" name="${product.name}Large" value="${product.largePrice}"><br>
+    `;
+    updateFormContainer.appendChild(updateForm);
 
-    // Assuming 'products' is the correct variable, change 'categories' to 'products'
-    products.forEach(function (product) {
-      var updateForm = document.createElement('div');
-      updateForm.innerHTML = `
-        <label for="${product.name}Small">${product.name} Small:</label>
-        <input type="text" id="${product.name}Small" name="${product.name}Small" value="${product.smallPrice}"><br>
-        <label for="${product.name}Large">${product.name} Large:</label>
-        <input type="text" id="${product.name}Large" name="${product.name}Large" value="${product.largePrice}"><br>
-      `;
-      updateFormContainer.appendChild(updateForm);
-
-      // Add a hide button for each product on the second page
-      var hideButton = document.createElement('button');
-      hideButton.textContent = 'Hide';
-      hideButton.onclick = function () {
-        toggleVisibility(product);
-      };
-      updateFormContainer.appendChild(hideButton);
-    });
-
-    // Assuming 'categories' is the correct variable, change 'products' to 'categories'
-    fadeInProducts(categories, true); // Pass 'true' to indicate it's the first page
+    // Add a hide button for each product on the second page
+    var hideButton = document.createElement('button');
+    hideButton.textContent = 'Hide';
+    hideButton.onclick = function () {
+      toggleVisibility(product);
+    };
+    updateFormContainer.appendChild(hideButton);
   });
-}
 
+  fadeInProducts(category, true); // Pass 'true' to indicate it's the first page
+}
 
 function toggleVisibility(product) {
   // Toggle the visibility of the product on the first page
@@ -114,4 +108,22 @@ function goToFirstPage() {
   document.getElementById('updateForm').style.display = 'none';
   document.getElementById('loginForm').style.display = 'none';
   document.getElementById('updatePageText').style.display = 'none';
+}
+
+// Add the login function
+function login() {
+  var username = document.getElementById('username').value;
+  var password = document.getElementById('password').value;
+
+  // Replace 'your_username' and 'your_password' with the actual credentials
+  if (username === 'tasos' && password === 12345') {
+    document.getElementById('loginForm').style.display = 'none';
+    document.getElementById('updateForm').style.display = 'block';
+    document.getElementById('saveChangesButton').style.display = 'block';
+    document.getElementById('updatePageText').style.display = 'block';
+    document.getElementById('returnToMenuButton').style.display = 'block';
+    document.getElementById('returnToFirstPageButton').style.display = 'block';
+  } else {
+    alert('Invalid username or password. Please try again.');
+  }
 }
